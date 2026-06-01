@@ -4,7 +4,7 @@ import webbrowser
 import datetime
 import speech_recognition as sr
 
-# ================= Window Setup =================
+# Window Setup 
 root = tk.Tk()
 root.title("SwiftSurf Browser")
 root.geometry("1000x620")
@@ -14,7 +14,7 @@ dark_mode = False
 history_list = []
 bookmarks = []
 
-# ================= Functions =================
+# Functions
 def open_site(url):
     webbrowser.open_new_tab(url)
     save_history(url)
@@ -87,38 +87,38 @@ def view_bookmarks():
     for b in bookmarks:
         bookmark_box.insert(tk.END, b)
 
-# ================= Top Navigation Bar =================
+# Top Navigation Bar
 top_frame = tk.Frame(root, bg="#101010", height=50)
 top_frame.pack(side="top", fill="x")
 
-btn_home = tk.Button(top_frame, text="🏠 Home", bg="#101010", fg="white", bd=0, font=("Arial", 11),
+btn_home = tk.Button(top_frame, text="Home", bg="#101010", fg="white", bd=0, font=("Arial", 11),
                      command=lambda: open_site("https://www.google.com"))
 btn_home.pack(side="left", padx=15)
 
-btn_toggle = tk.Button(top_frame, text="🌗 Mode", bg="#101010", fg="white", bd=0, font=("Arial", 11),
+btn_toggle = tk.Button(top_frame, text="Mode", bg="#101010", fg="white", bd=0, font=("Arial", 11),
                        command=toggle_mode)
 btn_toggle.pack(side="left", padx=15)
 
-btn_bookmark = tk.Button(top_frame, text="⭐ Add Bookmark", bg="#101010", fg="white", bd=0, font=("Arial", 11),
+btn_bookmark = tk.Button(top_frame, text="Add Bookmark", bg="#101010", fg="white", bd=0, font=("Arial", 11),
                          command=add_bookmark)
 btn_bookmark.pack(side="left", padx=15)
 
-btn_view_bookmarks = tk.Button(top_frame, text="📂 View Bookmarks", bg="#101010", fg="white", bd=0,
+btn_view_bookmarks = tk.Button(top_frame, text="View Bookmarks", bg="#101010", fg="white", bd=0,
                                font=("Arial", 11), command=view_bookmarks)
 btn_view_bookmarks.pack(side="left", padx=15)
 
-btn_history = tk.Button(top_frame, text="🕓 History", bg="#101010", fg="white", bd=0, font=("Arial", 11),
+btn_history = tk.Button(top_frame, text="History", bg="#101010", fg="white", bd=0, font=("Arial", 11),
                         command=view_history)
 btn_history.pack(side="left", padx=15)
 
-# ================= Left Sidebar =================
+# Left Sidebar
 side_frame = tk.Frame(root, bg="#e0e0e0", width=140)
 side_frame.pack(side="left", fill="y")
 
 tk.Label(side_frame, text="Quick Access", bg="#e0e0e0", fg="black",
          font=("Arial", 11, "bold")).pack(pady=10)
 
-# --- Common Social/Utility Sites ---
+# Common Social/Utility Sites 
 quick_sites = {
     "YouTube": "https://www.youtube.com",
     "Facebook": "https://www.facebook.com",
@@ -139,7 +139,7 @@ for name, url in quick_sites.items():
                     command=lambda url=url: open_site(url))
     btn.pack(pady=4)
 
-# --- News Section ---
+# News Section
 tk.Label(side_frame, text="News Portals", bg="#e0e0e0", fg="black",
          font=("Arial", 11, "bold")).pack(pady=(20, 5))
 
@@ -158,7 +158,7 @@ for name, url in news_sites.items():
                     command=lambda url=url: open_site(url))
     btn.pack(pady=2)
 
-# ================= Main Content Area =================
+# Main Content Area 
 main_frame = tk.Frame(root, bg="#f4f4f4")
 main_frame.pack(fill="both", expand=True)
 
@@ -180,7 +180,7 @@ voice_button = tk.Button(main_frame, text="🎤 Voice Search",
                          width=18, command=voice_search)
 voice_button.pack(pady=5)
 
-# ================= Bottom Bar (Weather + Time) =================
+# Bottom Bar (Weather + Time) 
 bottom_frame = tk.Frame(root, bg="#e0e0e0", height=30)
 bottom_frame.pack(side="bottom", fill="x")
 
@@ -203,7 +203,7 @@ def update_time():
 
 update_time()
 
-# ================= Run App =================
+# Run App
 root.mainloop()
 
 
